@@ -5,10 +5,12 @@ widthOfLine = 2;
 canvas = document.getElementById('myCanvas');
 ctx = canvas.getContext("2d");
 
-var width = screen.width;
+//Tente fazer sozinho uma variável que se chama 'width' em que ela guardará a largura da tela
+//???
 
-newWidth =  screen.width - 200; 
-newHeight = screen.height - 400;
+//Crie uma variável que se chama newWidth, em que ela guardará a largura da tela -200
+//Faça o mesmo com a altura
+//???
 	if(width < 992)
 	{
 	document.getElementById("myCanvas").width = newWidth;
@@ -19,47 +21,41 @@ newHeight = screen.height - 400;
 
 function myTouchStart(e) 
 {
-	console.log("myTouchStart");
-  //Atividade Adicional
+
   color = document.getElementById("color").value;
-  widthOfLine = document.getElementById("widthOfLine").value;
-  //Fim da Atividade Adicional
+  //Na linha acima, você está pegando elemento pelo ID, ou seja, está pegando a cor que você escolheu
+  //Faça o mesmo com a widthOfLine
+  //???
          
     lastPositionOfX = e.touches[0].clientX - canvas.offsetLeft;
     lastPositionOfY = e.touches[0].clientY - canvas.offsetTop;
 }
 
-canvas.addEventListener("touchmove", myTouchMove);
+//Utilize o código 'addEventListener' para que se aconteça um evento no canva, também aconteça a função 'myTouchMove'
+canvas.???("touchmove", myTouchMove);
 
 function myTouchMove(e) 
 {
 
-	console.log("myTouchMove");
     currentPositionOfTouchX = e.touches[0].clientX - canvas.offsetLeft;
     currentPositionOfTouchY = e.touches[0].clientY - canvas.offsetTop;
 
-    // mesmo código utilizado para a versão web
     ctx.beginPath();
     ctx.strokeStyle = color;
     ctx.lineWidth = widthOfLine;
 
-    console.log("Last position of x and y coordinates = ");
-    console.log("x = " + lastPositionOfX + "y = " + lastPositionOfY);
     ctx.moveTo(lastPositionOfX, lastPositionOfY);
 
-    console.log("Current position of x and y coordinates = ");
-    console.log("x  = " + currentPositionOfTouchX + "y = " + currentPositionOfTouchY);
     ctx.lineTo(currentPositionOfTouchX, currentPositionOfTouchY);
     ctx.stroke();
 
     lastPositionOfX = currentPositionOfTouchX; 
     lastPositionOfY = currentPositionOfTouchY;
     
-    // fim do mesmo código utilizado para a versão web
 }
 
-    // mesmo código utilizado para a versão web
-function clearArea() {
+//Crie a função para limpar a área
+??? {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 }
-    // fim do mesmo código utilizado para a versão web
+    
